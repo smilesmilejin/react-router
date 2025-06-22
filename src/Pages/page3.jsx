@@ -1,4 +1,11 @@
+import { ThemeContext } from '../App'; 
+import { useContext } from 'react';
+
 function Page3() {
+  const theme = useContext(ThemeContext);
+  console.log(`Page 3 Theme is ${theme}`);
+
+
   return (
     <div>
       <h1>Page 3</h1>
