@@ -23,8 +23,16 @@
 import './Header.css';
 import Logo from '../assets/Logo.png';
 import SearchIcon from '../assets/SearchIcon.png';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserLoginStatusContext } from '../App';
+import UserLogo from '../assets/UserLogo.png';
+
 
 function Header() {
+
+  const { userLoginStatus } = useContext(UserLoginStatusContext);
+
   return (
     <header className="header">
       {/* Logo */}
@@ -42,8 +50,37 @@ function Header() {
       </div>
 
       {/* Auth Buttons */}
-      <div className="auth-buttons">
+      {/* <div className="auth-buttons">
         <button>Log In/Sign Up</button>
+      </div> */}
+      {/* <div className="auth-buttons">
+        <Link to="/login">
+            <button className="login">Log In</button>
+        </Link>
+        <Link to="/signup">
+            <button className="signup">Sign Up</button>
+        </Link>
+      </div> */}
+
+    {/* Auth Buttons */}
+      <div className="auth-buttons">
+        {userLoginStatus ? (
+        //   <div>
+          <div className="user-logged-in">
+            <img src={UserLogo} alt="UserLogo" />
+            {/* Show user info or logout button when logged in */}
+            <button className="logout">Log Out</button>
+          </div>
+        ) : (
+          <>
+            <Link to="/login">
+              <button className="login">Log In</button>
+            </Link>
+            <Link to="/signup">
+              <button className="signup">Sign Up</button>
+            </Link>
+          </>
+        )}
       </div>
     </header>
   );

@@ -1,0 +1,29 @@
+form button {
+  background-color: #007bff; /* Blue color */
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+form input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  /* border: none; */
+  /* background-color: #1a1a1a; */
+  /* color: white; */
+  box-sizing: border-box;
+  width: 30%; 
+  margin-bottom: 1rem;  /* space between input and button */
+  height: calc(1rem + 2 * 0.75rem); /* roughly match button height */
+  margin-right: 10px;
+}

@@ -58,6 +58,7 @@
   object-fit: contain;
 }
 
+
 .auth-buttons button {
   padding: 8px 16px;
   border: none;
@@ -68,8 +69,34 @@
   font-weight: 600;
   transition: background-color 0.3s ease;
   /* margin-left: 200px; */
+  gap: 12px; /* space between buttons */
 }
 
 .auth-buttons button:hover {
   background-color: #001f4d;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 12px; /* or whatever spacing you want */
+  /* margin-left: auto;  */
+}
+
+/* make that specific user logo image smaller, add this to your Header.css: */
+.auth-buttons > div > img {
+  height: 32px; /* smaller height */
+  width: auto;
+}
+
+.auth-buttons > .user-logged-in {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;  /* center horizontally */
+  gap: 8px; /* space between button and user logo */
+}
+
+/* Keep user logo small */
+.auth-buttons > .user-logged-in > img {
+  height: 32px;
+  width: auto;
 }
