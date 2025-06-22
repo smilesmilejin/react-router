@@ -17,7 +17,8 @@ function App() {
   const [theme, setTheme] = useState('light');
 
   return (
-    <ThemeContext value={theme}>
+    // <ThemeContext value={theme}>
+    <ThemeContext value={{ theme, setTheme }}>
       <Router>
         {/* Make all other pages Layout child */}
         <Routes>

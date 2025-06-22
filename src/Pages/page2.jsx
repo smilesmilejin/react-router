@@ -4,7 +4,8 @@ import { useContext } from 'react';
 
 
 function Page2() {
-  const theme = useContext(ThemeContext);
+  // const theme = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
   console.log(`Page 2 Theme is ${theme}`)
 
   return (
