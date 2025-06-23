@@ -1,19 +1,30 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+// import { Link } from "react-router";
+// you can use React Router’s useLocation hook to get the current path and apply a style or class conditionally.
+// import { useLocation } from 'react-router';
+
+import { Link, useLocation } from 'react-router-dom';
+import './navbar.css';
+
 
 function Navbar() {
+  const location = useLocation(); // gives you current pathname
+  // helper to check if path is active
+  const isActive = (path) => location.pathname === path;
+
   return (
     <nav>
       <Link to="/">
-        <button>Home</button>
+        <button className={isActive('/') ? 'active-link' : ''}>Home</button>
       </Link>
       <Link to="/page1">
-        <button>Page 1</button>
+        <button className={isActive('/page1') ? 'active-link' : ''}>Page 1</button>
       </Link>
       <Link to="/page2">
-        <button>Page 2</button>
+        <button className={isActive('/page2') ? 'active-link' : ''}>Page 2</button>
       </Link>
       <Link to="/page3">
-        <button>Page 3</button>
+        <button className={isActive('/page3') ? 'active-link' : ''}>Page 3</button>
       </Link>
     </nav>
   );
