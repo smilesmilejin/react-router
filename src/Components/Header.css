@@ -100,3 +100,40 @@
   height: 32px;
   width: auto;
 }
+
+
+/* Wrap your user logo image inside a <Link> with class user-logo-wrapper.
+Add a <span> inside it with the tooltip text.
+Use the CSS above to show/hide tooltip on hover.  */
+.user-logo-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 8px;
+  border-radius: 5px;
+
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  pointer-events: none;
+  font-size: 12px;
+  z-index: 10;
+}
+
+.user-logo-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

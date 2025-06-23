@@ -27,11 +27,18 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserLoginStatusContext } from '../App';
 import UserLogo from '../assets/UserLogo.png';
-
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
 
-  const { userLoginStatus } = useContext(UserLoginStatusContext);
+  const { userLoginStatus, setUserLoginStatus } = useContext(UserLoginStatusContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setUserLoginStatus(false);
+    // Optional: clear user data from localStorage or cookies if used
+    navigate('/'); 
+  };
 
   return (
     <header className="header">
@@ -67,9 +74,15 @@ function Header() {
         {userLoginStatus ? (
         //   <div>
           <div className="user-logged-in">
-            <img src={UserLogo} alt="UserLogo" />
+            {/* Add a link to UserLogo */}
+            <Link to="/profile" className="user-logo-wrapper">
+              <img src={UserLogo} alt="UserLogo" />
+              <span className="tooltip-text">Click to view profile</span>
+            </Link>
+            {/* <img src={UserLogo} alt="UserLogo" /> */}
             {/* Show user info or logout button when logged in */}
-            <button className="logout">Log Out</button>
+            <button className="logout" onClick={handleLogout}>Log Out</button>
+            {/* <button className="logout">Log Out</button> */}
           </div>
         ) : (
           <>
@@ -87,3 +100,5 @@ function Header() {
 }
 
 export default Header;
+
+

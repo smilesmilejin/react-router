@@ -11,6 +11,7 @@ import Layout from './Layout.jsx';
 import { createContext } from 'react';
 import Login from './Pages/login';
 import Signup from './Pages/signup';
+import Profile from './Pages/profile';
 
 export const ThemeContext = createContext('light');
 export const UserLoginStatusContext = createContext();
@@ -30,7 +31,9 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            {/* <Route path="/profile" element={<Profile />} /> */}
             <Route element={<Layout />}>
+              <Route path="/profile" element={<Profile />} />
               {/* <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} /> */}
               {/* / is default route */}
